@@ -1,0 +1,115 @@
+.nav-container {
+  display: flex;
+  width: 100%;
+  height: 10vh;
+  align-items: center;
+  padding: 20px;
+
+  .logo {
+    display: flex;
+    .menu-ic {
+      transform: scale(var(--ggs, 1));
+    }
+
+    .menu-ic,
+    .menu-ic::after,
+    .menu-ic::before {
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+      width: 20px;
+      height: 2px;
+      border-radius: 3px;
+      background: currentColor;
+    }
+
+    .menu-ic::after,
+    .menu-ic::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+    }
+
+    .menu-ic::after {
+      top: 6px;
+    }
+  }
+  .tool {
+    display: flex;
+    flex-direction: column;
+
+    width: 30vw;
+    height: 4vh;
+
+    display: flex;
+    .search {
+      background-color: #ffffffff;
+      height: 100%;
+      outline: none;
+      position: relative;
+      display: flex;
+      gap: 20px;
+      border-radius: 10px;
+      input {
+        margin-left: auto;
+        width: 100%;
+        outline: 0;
+        border: 0;
+      }
+      .search-ic {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        transform: scale(var(--ggs, 1));
+        width: 16px;
+        height: 16px;
+        border: 2px solid;
+        border-radius: 100%;
+        margin-left: 8px;
+        margin-top: 5px;
+      }
+
+      .search-ic::after {
+        content: "";
+        display: block;
+        box-sizing: border-box;
+        position: absolute;
+        border-radius: 3px;
+        width: 2px;
+        height: 8px;
+        background: currentColor;
+        transform: rotate(-45deg);
+        top: 10px;
+        left: 12px;
+      }
+    }
+  }
+  .push {
+    margin-left: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-container {
+    .tool {
+      .search {
+        .search-ic {
+          width: 23px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 1025px) {
+  .nav-container {
+    .tool {
+      .search {
+        .search-ic {
+          width: 20px;
+          height: 16px;
+        }
+      }
+    }
+  }
+}
