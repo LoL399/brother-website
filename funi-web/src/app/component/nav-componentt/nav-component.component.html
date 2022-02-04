@@ -1,15 +1,33 @@
 <div class="nav-container">
-  <div class="logo">
-    <div class="menu-ic"></div>
-
-  </div>
-  <div class="push">
-    <div class="tool">
-      <div class="search">
-        <div class="search-ic"></div>
-        <input placeholder="Tìm kiếm sản phẩm" />
-        <!-- <input/> -->
+  <div
+    [ngClass]="{ category: true, expand: expandCategory }"
+    (mouseleave)="expandCateFunc()"
+  >
+    <div class="category-list">
+      <div class="item">
+        <label> A</label>
       </div>
+      <div class="item">
+        <label> B</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="logo" (mouseover)="expandCateFunc()">
+    <div
+      [ngClass]="{ 'menu-ic': true, expand: expandCategory }"
+      (click)="expandCateFunc()"
+    ></div>
+  </div>
+  <div class="push"></div>
+  <div class="tool">
+    <div class="search">
+      <!-- <div class="search-ic"></div> -->
+      <input placeholder="Tìm kiếm sản phẩm" />
+      <!-- <input/> -->
+    </div>
+    <div class="cart">
+      <div class="cart-ic"></div>
     </div>
   </div>
 </div>

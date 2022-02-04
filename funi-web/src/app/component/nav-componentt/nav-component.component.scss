@@ -3,14 +3,45 @@
   width: 100%;
   height: 10vh;
   align-items: center;
-  padding: 20px;
+  padding: 20px 0;
+  position: relative;
+  .category {
+    max-width: 0;
+    width: 30%;
+    height: 99vh;
+    top: 0;
+    background-color: #ffffffff;
+    position: absolute;
+    transition: max-width 1s ease-out;
+    overflow: hidden;
+    z-index: 1;
+    &.expand {
+      max-width: 30%;
+    }
+    // top: 20px;
+    .category-list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 100px;
+      .item {
+        width: 100%;
+        padding: 5px;
+        margin-left: 15px;
+      }
+    }
+  }
 
   .logo {
     display: flex;
+    margin-left: 20px;
+    z-index: 1;
     .menu-ic {
       transform: scale(var(--ggs, 1));
+      transition: filter 1s ease-out;
+      &.expand {
+        filter: invert(1);
+      }
     }
-
     .menu-ic,
     .menu-ic::after,
     .menu-ic::before {
@@ -20,7 +51,7 @@
       width: 20px;
       height: 2px;
       border-radius: 3px;
-      background: currentColor;
+      background: #ffffffff;
     }
 
     .menu-ic::after,
@@ -35,13 +66,10 @@
     }
   }
   .tool {
-    display: flex;
-    flex-direction: column;
-
-    width: 30vw;
     height: 4vh;
-
     display: flex;
+    margin-right: 20px;
+    gap: 10px;
     .search {
       background-color: #ffffffff;
       height: 100%;
@@ -49,8 +77,9 @@
       position: relative;
       display: flex;
       gap: 20px;
-      border-radius: 10px;
+      border-radius: 8px;
       input {
+        border-radius: 8px;
         margin-left: auto;
         width: 100%;
         outline: 0;
@@ -83,6 +112,52 @@
         left: 12px;
       }
     }
+    .cart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .cart-ic {
+        filter: invert(1);
+        display: block;
+        box-sizing: border-box;
+        position: relative;
+        transform: scale(var(--ggs, 1));
+        width: 20px;
+        height: 21px;
+        background: linear-gradient(to left, currentColor 12px, transparent 0)
+            no-repeat -1px 6px/18px 2px,
+          linear-gradient(to left, currentColor 12px, transparent 0) no-repeat
+            6px 14px/11px 2px,
+          linear-gradient(to left, currentColor 12px, transparent 0) no-repeat 0
+            2px/4px 2px,
+          radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat
+            12px 17px/4px 4px,
+          radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat
+            6px 17px/4px 4px;
+      }
+
+      .cart-ic::after,
+      .cart-ic::before {
+        content: "";
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        width: 2px;
+        height: 14px;
+        background: currentColor;
+        top: 2px;
+        left: 4px;
+        transform: skew(12deg);
+      }
+
+      .cart-ic::after {
+        height: 10px;
+        top: 6px;
+        left: 16px;
+        transform: skew(-12deg);
+      }
+    }
   }
   .push {
     margin-left: auto;
@@ -91,8 +166,22 @@
 
 @media only screen and (max-width: 600px) {
   .nav-container {
+    .category {
+      width: 100%;
+      &.expand {
+        max-width: 100%;
+      }
+    }
     .tool {
       .search {
+        width: 100px;
+        input,
+        input::-webkit-input-placeholder {
+          font-size: 12px;
+          line-height: 3;
+          text-overflow: ellipsis;
+          padding: 2px;
+        }
         .search-ic {
           width: 23px;
           height: 16px;

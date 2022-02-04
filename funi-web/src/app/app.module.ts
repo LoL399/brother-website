@@ -7,6 +7,7 @@ import { HomepageComponent } from './page/homepage/homepage.component';
 import { IntropageComponent } from './page/intropage/intropage.component';
 import { NavComponentComponent } from './component/nav-componentt/nav-component.component';
 import { FooterComponentComponent } from './component/footer-component/footer-component.component';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FooterComponentComponent } from './component/footer-component/footer-co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IvyCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
