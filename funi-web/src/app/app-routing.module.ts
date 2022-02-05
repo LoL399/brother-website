@@ -1,10 +1,15 @@
+import { ProductPageComponent } from './page/product-page/product-page.component';
+import { IntropageComponent } from './page/intropage/intropage.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: IntropageComponent },
+  { path: 'catalog', component: ProductPageComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

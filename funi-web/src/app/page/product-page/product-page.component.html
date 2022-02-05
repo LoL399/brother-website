@@ -1,0 +1,28 @@
+<div class="catalog-container">
+  <div class="catalog-header">
+  </div>
+  <div class="catalog">
+    <ng-container *ngFor="let item of dummyItems">
+      <ng-container *ngTemplateOutlet="catalogItem; context: item">
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #catalogItem let-context="context">
+  <div class="catalog-item">
+    <div class="product-display">
+      <img
+        src="https://static.zarahome.net/8/photos4/2022/V/4/1/p/6292/021/814/01/6292021814_7_1_2.jpg?t=1643793304658"
+      />
+      <div class="add-cart">
+        <div class="cart-ic"></div>
+      </div>
+    </div>
+
+    <div class="info-display">
+      <label>Name</label>
+      <small>$1000</small>
+    </div>
+  </div>
+</ng-template>
