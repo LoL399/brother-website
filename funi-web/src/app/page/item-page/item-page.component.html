@@ -1,0 +1,41 @@
+<div class="item-container">
+    <div class="item-header">
+    </div>
+    <div class="info-section">
+        <div class="image-slide">
+            <carousel [images]="images" [cellsToShow]="1" [dots]="true" [loop]="true" [height]="800" [autoplay]="true">
+            </carousel>
+
+        </div>
+        <div class="item-info">
+            <h1> Label Name </h1>
+            <div class="price">
+                <h2> Price:</h2>
+                <h3>$100</h3>
+                <h3>x</h3>
+                <div [ngClass]="{quantities: true, error: quantities < 1}">
+                    <div class="button" (click)="changeQuantities(-1)">
+                        <div class="minus-ic"></div>
+                    </div>
+                    <input [ngClass]="{error: quantities < 1}" [(ngModel)]="quantities" (change)="changeQuantities(0)" />
+                    <div class="button" (click)="changeQuantities(1)">
+                        <div class="plus-ic"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="extra">
+
+        </div>
+        <div class="extra">
+
+        </div>
+        <div class="extra">
+
+        </div>
+
+
+    </div>
+</div>

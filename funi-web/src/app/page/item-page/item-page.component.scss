@@ -1,0 +1,161 @@
+@import url("../../common/common.scss");
+.item-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .item-header {
+        width: 100%;
+        height: var(--nav-height);
+        background-color: #000000;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        label {
+            color: #ffffff;
+        }
+    }
+    .info-section {
+        // height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        width: 100%;
+        padding: 10px;
+        flex-wrap: wrap;
+        .item-info {
+            min-height: 300px;
+            width: 39%;
+            .price {
+                display: inline-flex;
+                justify-items: center;
+                align-items: center;
+                gap: 20px;
+                .quantities {
+                    display: flex;
+                    justify-items: center;
+                    align-items: center;
+                    gap: 5px;
+                    border: 1px solid #ababab;
+                    height: 50px;
+                    width: fit-content;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    &.error {
+                        border: 1px solid var(--error-clr);
+                    }
+                    .button {
+                        display: flex;
+                        height: inherit;
+                        justify-content: center;
+                        align-items: center;
+                        width: inherit;
+                        padding: 10px;
+                        transition: filter 0.3s ease-in-out;
+                        &:hover {
+                            cursor: pointer;
+                            background-color: white;
+                            filter: invert(1);
+                        }
+                        .plus-ic,
+                        .plus-ic::after {
+                            display: block;
+                            box-sizing: border-box;
+                            background: currentColor;
+                            border-radius: 10px;
+                        }
+
+                        .plus-ic {
+                            margin-top: -2px;
+                            position: relative;
+                            transform: scale(var(--ggs, 1));
+                            width: 16px;
+                            height: 2px;
+                        }
+
+                        .plus-ic::after {
+                            content: "";
+                            position: absolute;
+                            width: 2px;
+                            height: 16px;
+                            top: -7px;
+                            left: 7px;
+                        }
+
+                        .minus-ic {
+                            box-sizing: border-box;
+                            position: relative;
+                            display: block;
+                            transform: scale(var(--ggs, 1));
+                            width: 16px;
+                            height: 2px;
+                            background: currentColor;
+                            border-radius: 10px;
+                        }
+                    }
+                    input {
+                        height: 90%;
+                        width: 50px;
+                        outline: 0;
+                        border: 0;
+                        text-align: center;
+                        font-size: 14px;
+                        font-weight: bold;
+                        &.error {
+                            color: var(--error-clr);
+                        }
+                    }
+                }
+            }
+        }
+        .image-slide {
+            width: 39%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            carousel {
+                height: 800px;
+            }
+        }
+        .extra {
+            min-height: 300px;
+            border: 1px solid;
+            width: 100%;
+        }
+    }
+}
+@media only screen and (max-width: 600px) {
+    .item-container {
+        .info-section {
+            .item-info {
+                width: 100%;
+                border-bottom: 1px solid;
+                .price {
+                    gap: 10px;
+                }
+            }
+            .image-slide {
+                width: 100%;
+                carousel {
+                    height: 400px;
+                }
+            }
+            .extra {
+                width: 100%;
+            }
+        }
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    .item-container {
+        .info-section {
+            .image-slide {
+                width: 100%;
+                carousel {
+                    height: 600px;
+                }
+            }
+        }
+    }
+}
