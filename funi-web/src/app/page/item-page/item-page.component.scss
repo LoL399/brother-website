@@ -27,85 +27,153 @@
         .item-info {
             min-height: 300px;
             width: 39%;
-            .price {
-                display: inline-flex;
-                justify-items: center;
-                align-items: center;
-                gap: 20px;
-                .quantities {
-                    display: flex;
-                    justify-items: center;
+            .class-object {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                .title {
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                    line-height: 3.6rem;
+                    letter-spacing: 0.033rem;
+                }
+                .price {
+                    display: inline-flex;
+                    justify-content: space-evenly;
                     align-items: center;
-                    gap: 5px;
-                    border: 1px solid #ababab;
-                    height: 50px;
-                    width: fit-content;
-                    border-radius: 20px;
-                    overflow: hidden;
-                    &.error {
-                        border: 1px solid var(--error-clr);
-                    }
-                    .button {
+                    gap: 20px;
+                    width: 100%;
+                    .quantities {
                         display: flex;
-                        height: inherit;
                         justify-content: center;
                         align-items: center;
-                        width: inherit;
-                        padding: 10px;
-                        transition: filter 0.3s ease-in-out;
-                        &:hover {
-                            cursor: pointer;
-                            background-color: white;
-                            filter: invert(1);
-                        }
-                        .plus-ic,
-                        .plus-ic::after {
-                            display: block;
-                            box-sizing: border-box;
-                            background: currentColor;
-                            border-radius: 10px;
-                        }
-
-                        .plus-ic {
-                            margin-top: -2px;
-                            position: relative;
-                            transform: scale(var(--ggs, 1));
-                            width: 16px;
-                            height: 2px;
-                        }
-
-                        .plus-ic::after {
-                            content: "";
-                            position: absolute;
-                            width: 2px;
-                            height: 16px;
-                            top: -7px;
-                            left: 7px;
-                        }
-
-                        .minus-ic {
-                            box-sizing: border-box;
-                            position: relative;
-                            display: block;
-                            transform: scale(var(--ggs, 1));
-                            width: 16px;
-                            height: 2px;
-                            background: currentColor;
-                            border-radius: 10px;
-                        }
-                    }
-                    input {
-                        height: 90%;
-                        width: 50px;
-                        outline: 0;
-                        border: 0;
-                        text-align: center;
-                        font-size: 14px;
-                        font-weight: bold;
+                        gap: 5px;
+                        border: 1px solid #ababab;
+                        height: 50px;
+                        width: fit-content;
+                        border-radius: 20px;
+                        overflow: hidden;
                         &.error {
-                            color: var(--error-clr);
+                            border: 1px solid var(--error-clr);
+                        }
+                        .button {
+                            display: flex;
+                            height: inherit;
+                            justify-content: center;
+                            align-items: center;
+                            width: inherit;
+                            padding: 10px;
+                            transition: filter 0.3s ease-in-out;
+                            &:hover {
+                                cursor: pointer;
+                                background-color: white;
+                                filter: invert(1);
+                            }
+                            .plus-ic,
+                            .plus-ic::after {
+                                display: block;
+                                box-sizing: border-box;
+                                background: currentColor;
+                                border-radius: 10px;
+                            }
+
+                            .plus-ic {
+                                margin-top: -2px;
+                                position: relative;
+                                transform: scale(var(--ggs, 1));
+                                width: 16px;
+                                height: 2px;
+                            }
+
+                            .plus-ic::after {
+                                content: "";
+                                position: absolute;
+                                width: 2px;
+                                height: 16px;
+                                top: -7px;
+                                left: 7px;
+                            }
+
+                            .minus-ic {
+                                box-sizing: border-box;
+                                position: relative;
+                                display: block;
+                                transform: scale(var(--ggs, 1));
+                                width: 16px;
+                                height: 2px;
+                                background: currentColor;
+                                border-radius: 10px;
+                            }
+                        }
+                        input {
+                            height: 90%;
+                            width: 50px;
+                            outline: 0;
+                            border: 0;
+                            text-align: center;
+                            font-size: 14px;
+                            font-weight: bold;
+                            &.error {
+                                color: var(--error-clr);
+                            }
                         }
                     }
+                }
+            }
+            .to-cart {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30px;
+                border-radius: 10px;
+                border: 1px solid;
+                margin-top: 5%;
+                padding: 20px;
+                gap: 10px;
+                transition: all 0.4s ease-in-out;
+                background-color: #ffffff;
+
+                label {
+                    font-weight: bolder;
+                    font-size: 18px;
+                }
+                &:hover {
+                    filter: invert(1);
+                    cursor: pointer;
+                }
+                .cart-ic {
+                    display: block;
+                    box-sizing: border-box;
+                    position: relative;
+                    transform: scale(var(--ggs, 1));
+                    width: 20px;
+                    height: 21px;
+                    background: linear-gradient(to left, currentColor 12px, transparent 0) no-repeat -1px 6px/18px 2px,
+                        linear-gradient(to left, currentColor 12px, transparent 0) no-repeat 6px 14px/11px 2px,
+                        linear-gradient(to left, currentColor 12px, transparent 0) no-repeat 0 2px/4px 2px,
+                        radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat 12px 17px/4px 4px,
+                        radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat 6px 17px/4px 4px;
+                }
+
+                .cart-ic::after,
+                .cart-ic::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    box-sizing: border-box;
+                    width: 2px;
+                    height: 14px;
+                    background: currentColor;
+                    top: 2px;
+                    left: 4px;
+                    transform: skew(12deg);
+                }
+
+                .cart-ic::after {
+                    height: 10px;
+                    top: 6px;
+                    left: 16px;
+                    transform: skew(-12deg);
                 }
             }
         }
@@ -115,13 +183,43 @@
             justify-content: center;
             align-items: center;
             carousel {
-                height: 800px;
+                height: 800px !important;
+                z-index: 0 !important;
             }
         }
         .extra {
             min-height: 300px;
             border: 1px solid;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .header {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #000000;
+                .title {
+                    font-size: 2.2rem;
+                    font-weight: 600;
+                    line-height: 3.6rem;
+                    letter-spacing: 0.033rem;
+                    color: #ffffff;
+                    font-size: 14px;
+                    text-align: center;
+                    line-height: 24px;
+                    padding: 12px 24px;
+                    white-space: nowrap;
+                    text-transform: uppercase
+                }
+            }
+
+            iframe {
+                border: 0;
+                outline: 0;
+                width: 100%;
+            }
         }
     }
 }
@@ -130,7 +228,6 @@
         .info-section {
             .item-info {
                 width: 100%;
-                border-bottom: 1px solid;
                 .price {
                     gap: 10px;
                 }
@@ -138,7 +235,7 @@
             .image-slide {
                 width: 100%;
                 carousel {
-                    height: 400px;
+                    height: 400px !important;
                 }
             }
             .extra {
@@ -153,7 +250,7 @@
             .image-slide {
                 width: 100%;
                 carousel {
-                    height: 600px;
+                    height: 600px !important;
                 }
             }
         }

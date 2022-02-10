@@ -3,39 +3,49 @@
     </div>
     <div class="info-section">
         <div class="image-slide">
-            <carousel [images]="images" [cellsToShow]="1" [dots]="true" [loop]="true" [height]="800" [autoplay]="true">
+            <carousel [images]="images" [cellsToShow]="1" [dots]="true" [loop]="true" [autoplay]="true">
             </carousel>
 
         </div>
         <div class="item-info">
             <h1> Label Name </h1>
-            <div class="price">
-                <h2> Price:</h2>
-                <h3>$100</h3>
-                <h3>x</h3>
-                <div [ngClass]="{quantities: true, error: quantities < 1}">
-                    <div class="button" (click)="changeQuantities(-1)">
-                        <div class="minus-ic"></div>
-                    </div>
-                    <input [ngClass]="{error: quantities < 1}" [(ngModel)]="quantities" (change)="changeQuantities(0)" />
-                    <div class="button" (click)="changeQuantities(1)">
-                        <div class="plus-ic"></div>
-                    </div>
+            <hr/>
+            <div class="class-object">
+                <label class="title">Loại sản phẩm: </label>
+                <div class="price" *ngFor="let op of images">
+                    <h2>{{op.name}}: </h2>
+                    <h3>$100</h3>
+                    <h3>x</h3>
+                    <div [ngClass]="{quantities: true, error: quantities < 1}">
+                        <div class="button" (click)="changeQuantities(-1)">
+                            <div class="minus-ic"></div>
+                        </div>
+                        <input [ngClass]="{error: quantities < 1}" [(ngModel)]="quantities"
+                            (change)="changeQuantities(0)" />
+                        <div class="button" (click)="changeQuantities(1)">
+                            <div class="plus-ic"></div>
+                        </div>
 
+                    </div>
                 </div>
             </div>
+            <div class="to-cart">
+                <div class="cart-ic"></div>
+                <label>Thêm vào giỏ hàng</label>
+            </div>
+
+
+        </div>
+        <div class="extra">
+            <div class="header">
+                <label class="title">Chi tiết</label>
+            </div>
+
+            <iframe [srcdoc]="test "></iframe>
 
         </div>
         <div class="extra">
 
         </div>
-        <div class="extra">
-
-        </div>
-        <div class="extra">
-
-        </div>
-
-
     </div>
 </div>
