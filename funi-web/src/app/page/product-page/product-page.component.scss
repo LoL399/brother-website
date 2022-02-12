@@ -15,6 +15,40 @@
       color: #ffffff;
     }
   }
+  .catalog-detail {
+    display: flex;
+    width: 100%;
+    padding: 0px 10px;
+    .name {
+      display: flex;
+      justify-content: center;
+      align-self: center;
+    }
+    .filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .title{
+        font-weight: bold;
+      }
+      ul {
+        display: flex;
+        list-style-type: none;
+        gap: 30px;
+        li {
+          &.active {
+            border-bottom: 1px solid #000000;
+            label {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+    .push {
+      margin-left: auto;
+    }
+  }
   .catalog {
     display: flex;
     width: 100%;
@@ -140,15 +174,15 @@
 }
 @media only screen and (max-width: 600px) {
   .catalog-container {
-      .catalog-header{
-        label{
-            display: none;
-        }
+    .catalog-header {
+      label {
+        display: none;
       }
-      .catalog{
-        .catalog-item {
-            width: 100%;
-        }
+    }
+    .catalog {
+      .catalog-item {
+        width: 100%;
       }
+    }
   }
 }

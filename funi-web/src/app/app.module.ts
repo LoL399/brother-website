@@ -12,6 +12,7 @@ import { ProductPageComponent } from './page/product-page/product-page.component
 import { ItemPageComponent } from './page/item-page/item-page.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './page/cart/cart.component';
+import { BillingComponent } from './page/billing/billing.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CartComponent } from './page/cart/cart.component';
     FooterComponentComponent,
     ProductPageComponent,
     ItemPageComponent,
-    CartComponent
+    CartComponent,
+    BillingComponent
   ],
   imports: [
     BrowserModule,

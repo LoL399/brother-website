@@ -1,0 +1,64 @@
+<div class="billing-container">
+  <div class="billing-header"></div>
+  <div class="section-divide-container">
+    <div class="info-column">
+      <div class="class-object">
+        <label class="title">Giỏ hàng: </label>
+        <div class="price" *ngFor="let op of images">
+          <h2>{{ op.name }}:</h2>
+          <h3>$100</h3>
+          <h3>x</h3>
+          <div [ngClass]="{ quantities: true, error: quantities < 1 }">
+            <div class="button" (click)="changeQuantities(-1)">
+              <div class="minus-ic"></div>
+            </div>
+            <input
+              [ngClass]="{ error: quantities < 1 }"
+              [(ngModel)]="quantities"
+              (change)="changeQuantities(0)"
+            />
+            <div class="button" (click)="changeQuantities(1)">
+              <div class="plus-ic"></div>
+            </div>
+          </div>
+          <div class="remove-item">
+            <div class="close-ic"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-column">
+      <div class="class-object">
+        <label class="title">Thông tin giao hàng: </label>
+        <div class="form-column">
+          <div class="field">
+            <label>Họ và tên:</label>
+            <input class="required" />
+          </div>
+          <label class="required">Thông tin cần thiết</label>
+        </div>
+        <div class="form-column">
+          <div class="field">
+            <label>Địa chỉ:</label>
+            <input />
+          </div>
+        </div>
+        <div class="form-column">
+          <div class="field">
+            <label>Số địa thoại:</label>
+            <input />
+          </div>
+        </div>
+        <div class="form-column">
+          <div class="field">
+            <label>Ghi chú:</label>
+            <textarea></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="process-submit">
+    <label>Tiến hành thanh toán</label>
+  </div>
+</div>
