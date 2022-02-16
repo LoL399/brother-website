@@ -1,0 +1,252 @@
+.class-object {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    .form-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .field {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            label {
+                font-size: 1rem;
+                font-weight: 600;
+                line-height: 3.6rem;
+                letter-spacing: 0.033rem;
+            }
+            textarea,
+            input {
+                font-size: 1rem;
+                height: 40px;
+                width: 200px;
+                outline: 0;
+                border: 0;
+                border-radius: 10px;
+                border: 1px solid;
+                transition: border 0.4s ease-in-out;
+                &:required {
+                    border: 1px solid red;
+                }
+            }
+            textarea {
+                height: 100px;
+            }
+        }
+        .required {
+            color: red;
+        }
+    }
+
+    .title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: 3.6rem;
+        letter-spacing: 0.033rem;
+    }
+    .price {
+        display: inline-flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+        .remove-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            :hover{
+                cursor: pointer;
+                color: red;
+            }
+            .close-ic {
+                box-sizing: border-box;
+                position: relative;
+                display: block;
+                transform: scale(var(--ggs, 1));
+                width: 22px;
+                height: 22px;
+                border: 2px solid;
+                border-radius: 40px;
+            }
+
+            .close-ic::after,
+            .close-ic::before {
+                content: "";
+                display: block;
+                box-sizing: border-box;
+                position: absolute;
+                width: 12px;
+                height: 2px;
+                background: currentColor;
+                transform: rotate(45deg);
+                border-radius: 5px;
+                top: 8px;
+                left: 3px;
+            }
+
+            .close-ic::after {
+                transform: rotate(-45deg);
+            }
+        }
+        .quantities {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid #ababab;
+            height: 50px;
+            width: fit-content;
+            border-radius: 20px;
+            overflow: hidden;
+            &.error {
+                border: 1px solid var(--error-clr);
+            }
+            .button {
+                display: flex;
+                height: inherit;
+                justify-content: center;
+                align-items: center;
+                width: inherit;
+                padding: 10px;
+                transition: filter 0.3s ease-in-out;
+                &:hover {
+                    cursor: pointer;
+                    background-color: white;
+                    filter: invert(1);
+                }
+                .plus-ic,
+                .plus-ic::after {
+                    display: block;
+                    box-sizing: border-box;
+                    background: currentColor;
+                    border-radius: 10px;
+                }
+
+                .plus-ic {
+                    margin-top: -2px;
+                    position: relative;
+                    transform: scale(var(--ggs, 1));
+                    width: 16px;
+                    height: 2px;
+                }
+
+                .plus-ic::after {
+                    content: "";
+                    position: absolute;
+                    width: 2px;
+                    height: 16px;
+                    top: -7px;
+                    left: 7px;
+                }
+
+                .minus-ic {
+                    box-sizing: border-box;
+                    position: relative;
+                    display: block;
+                    transform: scale(var(--ggs, 1));
+                    width: 16px;
+                    height: 2px;
+                    background: currentColor;
+                    border-radius: 10px;
+                }
+            }
+            input {
+                height: 90%;
+                width: 50px;
+                outline: 0;
+                border: 0;
+                text-align: center;
+                font-size: 14px;
+                font-weight: bold;
+                &.error {
+                    color: var(--error-clr);
+                }
+            }
+        }
+    }
+    .process-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        border-radius: 10px;
+        border: 1px solid;
+        padding: 20px;
+        gap: 10px;
+        transition: all 0.4s ease-in-out;
+        background-color: #ffffff;
+        margin: 3% 10%;
+        label {
+          font-weight: bolder;
+          font-size: 18px;
+        }
+        &:hover {
+          filter: invert(1);
+          cursor: pointer;
+        }
+        .cart-ic {
+          display: block;
+          box-sizing: border-box;
+          position: relative;
+          transform: scale(var(--ggs, 1));
+          width: 20px;
+          height: 21px;
+          background: linear-gradient(to left, currentColor 12px, transparent 0)
+              no-repeat -1px 6px/18px 2px,
+            linear-gradient(to left, currentColor 12px, transparent 0) no-repeat 6px
+              14px/11px 2px,
+            linear-gradient(to left, currentColor 12px, transparent 0) no-repeat 0
+              2px/4px 2px,
+            radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat
+              12px 17px/4px 4px,
+            radial-gradient(circle, currentColor 60%, transparent 40%) no-repeat 6px
+              17px/4px 4px;
+        }
+    
+        .cart-ic::after,
+        .cart-ic::before {
+          content: "";
+          display: block;
+          position: absolute;
+          box-sizing: border-box;
+          width: 2px;
+          height: 14px;
+          background: currentColor;
+          top: 2px;
+          left: 4px;
+          transform: skew(12deg);
+        }
+    
+        .cart-ic::after {
+          height: 10px;
+          top: 6px;
+          left: 16px;
+          transform: skew(-12deg);
+        }
+      }
+}
+@media only screen and (max-width: 600px) {
+    .class-object {
+        .price {
+            gap: 10px;
+            h3,
+            h2 {
+                font-size: 14px;
+            }
+        }
+        .form-column {
+            .field {
+                width: 100%;
+            }
+            flex-direction: column;
+        }
+    }
+}

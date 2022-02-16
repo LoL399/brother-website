@@ -11,8 +11,10 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { ProductPageComponent } from './page/product-page/product-page.component';
 import { ItemPageComponent } from './page/item-page/item-page.component';
 import { FormsModule } from '@angular/forms';
-import { CartComponent } from './page/cart/cart.component';
 import { BillingComponent } from './page/billing/billing.component';
+import { CartComponent } from './component/cart/cart.component';
+import { NoFoundComponent } from './page/no-found/no-found.component';
+import { ModalComponent } from './component/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BillingComponent } from './page/billing/billing.component';
     ProductPageComponent,
     ItemPageComponent,
     CartComponent,
-    BillingComponent
+    BillingComponent,
+    NoFoundComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

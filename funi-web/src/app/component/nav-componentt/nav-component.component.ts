@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalService } from './../../service/modal.service';
+import { CartComponent } from './../cart/cart.component';
 
 @Component({
   selector: 'app-nav-component',
@@ -8,11 +10,22 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponentComponent implements OnInit {
   expandCategory: boolean = false;
 
-  constructor() {}
+  @ViewChild('cart') cartView: any;
 
-  ngOnInit(): void {}
+  constructor(private modalService: ModalService) { }
+
+  ngOnInit(): void { }
 
   expandCateFunc() {
     this.expandCategory = !this.expandCategory;
+  }
+  openCart() {
+    let param = {
+      style:{
+        height:'unset',
+        width: '60%'
+      }
+    }
+    this.modalService.open(this.cartView,param);
   }
 }

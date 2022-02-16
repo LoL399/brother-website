@@ -1,0 +1,47 @@
+@import url("../../common/common.scss");
+.item-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .item-header {
+        width: 100%;
+        height: var(--nav-height);
+        background-color: #000000;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        label {
+            color: #ffffff;
+        }
+    }
+    .no-found-contianer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        label {
+          font-size: 100px;
+          color: #233258;
+        }
+        .small {
+          font-size: 40px;
+          color: #233258;
+        }
+        .return{
+            border: 2px solid #233258;
+            padding: 3px;
+            font-size: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: black;
+            width: 200px;
+            text-align: center;
+        }
+      
+      }
+      
+}

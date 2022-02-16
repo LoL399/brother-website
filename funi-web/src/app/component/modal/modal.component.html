@@ -1,0 +1,19 @@
+<div #modalShell [ngClass]="['modal', overlayHandle()]" (click)="clickOutSide()" tabindex="-1"
+  (focusout)="onFocusOut($event)">
+  <!-- Modal content -->
+
+  <div [ngClass]="classHandler()" (click)='$event.stopPropagation()' [ngStyle]="modalStyle">
+    <div class="modal-header" *ngIf="closebtn">
+      <div class="close-ic" (click)="close()">
+      </div>
+    </div>
+    <!-- Modal body -->
+    <div class="modal-container" [ngStyle]="contentStyle()">
+      <ng-template [ngTemplateOutlet]="componentViewChild" *ngIf="componentViewChild"></ng-template>
+    </div>
+
+
+
+  </div>
+</div>
+

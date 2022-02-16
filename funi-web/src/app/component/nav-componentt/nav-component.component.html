@@ -26,8 +26,12 @@
       <input placeholder="Tìm kiếm sản phẩm" />
       <!-- <input/> -->
     </div>
-    <div class="cart">
+    <div class="cart" (click)="openCart()">
       <div class="cart-ic"></div>
     </div>
   </div>
 </div>
+<ng-template #cart>
+  <app-cart></app-cart>
+</ng-template>
+

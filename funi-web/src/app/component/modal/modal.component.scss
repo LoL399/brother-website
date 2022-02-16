@@ -1,0 +1,119 @@
+/* Modal Content */
+.modal {
+    animation: popup 0.7s;
+    position: fixed; /* Stay in place */
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    font-family: Meiryo UI;
+    font-size: 14px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+    // .center-modal {
+    //   top: 50%;
+    //   left: 50%;
+    //   position: absolute;
+    //   // transform: translate(-50.1%, -51.3%);
+    //   transform: translate3d(-50.1%, -51.3%, 0) scale3d(1, 1, 1);
+    // }
+
+    .modal-content-mobile {
+        border: 3px solid;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        box-shadow: 5px 10px #0000001c;
+        label {
+            font-family: Roboto;
+            font-style: normal;
+        }
+        .modal-header {
+            display: flex;
+            width: 100%;
+            height: 44px;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 4%;
+            .close-ic {
+                box-sizing: border-box;
+                position: relative;
+                display: block;
+                transform: scale(var(--ggs, 1));
+                width: 22px;
+                height: 22px;
+                border: 2px solid transparent;
+                border-radius: 40px;
+                &:hover{
+                  cursor: pointer;  
+                }
+            }
+
+            .close-ic::after,
+            .close-ic::before {
+                content: "";
+                display: block;
+                box-sizing: border-box;
+                position: absolute;
+                width: 16px;
+                height: 2px;
+                background: currentColor;
+                transform: rotate(45deg);
+                border-radius: 5px;
+                top: 8px;
+                left: 1px;
+            }
+
+            .close-ic::after {
+                transform: rotate(-45deg);
+            }
+        }
+        .modal-title {
+            display: flex;
+            padding: 3%;
+            label {
+                font-family: SF Pro Display;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 28px;
+                /* identical to box height, or 156% */
+
+                letter-spacing: 0.8px;
+
+                /* Label Light / Primary */
+
+                color: #000000;
+            }
+        }
+        .modal-container {
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+            height: calc(100% - 64px - 44px - 40px);
+        }
+    }
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.shadow {
+    box-shadow: 5px 10px #888888;
+}
+
+@keyframes popup {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
