@@ -4,8 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    padding: 10px 0;
+    gap: 16px;
+    padding: 16px;
     .form-column {
         display: flex;
         flex-direction: column;
@@ -235,6 +235,7 @@
 }
 @media only screen and (max-width: 600px) {
     .class-object {
+        width: 100%;
         .price {
             gap: 10px;
             h3,
@@ -250,3 +251,5 @@
         }
     }
 }
+
+

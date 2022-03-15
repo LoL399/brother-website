@@ -21,11 +21,13 @@ export class NavComponentComponent implements OnInit {
   }
   openCart() {
     let param = {
-      style:{
-        height:'unset',
-        width: '60%'
+      style: {
+        height: 'unset',
+        width: 'fit-content'
       }
     }
-    this.modalService.open(this.cartView,param);
+    this.modalService.open(this.cartView, param);
   }
+
+
 }

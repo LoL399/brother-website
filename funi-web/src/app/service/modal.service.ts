@@ -39,8 +39,14 @@ export class ModalService {
     // get DOM element from component
     const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
+    this.removeScroll(true);
     // const componentRef = this.parentLocation.createComponent(componentFactory);
     return componentRef.instance;
+  }
+
+  
+  removeScroll(open: boolean = false) {
+    open ? document.body.style.position = 'fixed' : document.body.style.position = ''
   }
 
   /**
@@ -76,5 +82,6 @@ export class ModalService {
         modalView.callBack(data);
       }
     }
+    this.removeScroll(false);
   }
 }
