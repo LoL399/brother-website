@@ -97,11 +97,11 @@ export class ModalComponent implements OnInit {
    * @param selectRowIndex  selected row index
    */
   modalFocusInStrigger() {
-    if (this.modalShell) this.modalShell.nativeElement.focus();
+    if (this.modalShell) this.modalShell?.nativeElement.focus();
     else {
       // if modal element is not rendered yet, wait for 1 milisecond and raise focus again.
       setTimeout(function (modal: any) {
-        modal.modalShell.nativeElement.focus();
+        modal.modalShell?.nativeElement.focus();
       }, 1, this);
     }
   }

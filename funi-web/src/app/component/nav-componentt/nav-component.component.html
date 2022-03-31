@@ -1,5 +1,6 @@
 <div class="nav-container">
   <div
+    [ngStyle]="{ height: bodyHeight + 'px' }"
     [ngClass]="{ category: true, expand: expandCategory }"
     (mouseleave)="expandCateFunc()"
   >
@@ -34,4 +35,3 @@
 <ng-template #cart>
   <app-cart></app-cart>
 </ng-template>
-

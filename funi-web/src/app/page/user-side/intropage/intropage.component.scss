@@ -1,6 +1,9 @@
+@import url('../../../common/common.scss');
+
 .intro-container {
   display: flex;
   width: 100%;
+  height: 100%;
   // height: 90vh;
   position: relative;
   .img-banner {
@@ -9,20 +12,31 @@
       width: 100%;
     }
   }
-  .info-container {
+  .banner {
+    padding: 20px;
     position: absolute;
-    top: 25%;
-    left: 49%;
-    z-index: 1;
     display: flex;
-    flex-direction: column;
-    .header {
-      font-size: 7rem;
-      color: #ffffff;
-    }
-    .small {
-      font-size: 4rem;
-      color: #ffffff;
+    z-index: 1;
+    justify-content: end;
+    width: inherit;
+    height: inherit;
+    align-items: center;
+    .info-container {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+      width: 40%;
+      background-color: var(--back-color-banner);
+      border-radius: 20px;
+      .header {
+        font-size: 7rem;
+        color: #000000;
+      }
+      .small {
+        font-size: 4rem;
+        color: #000000;
+      }
     }
   }
 }

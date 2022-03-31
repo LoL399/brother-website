@@ -1,0 +1,16 @@
+.over-lay{
+    animation: popup 0.7s;
+    position: fixed; /* Stay in place */
+    z-index: 9998;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    font-family: Meiryo UI;
+    font-size: 14px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+}

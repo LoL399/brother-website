@@ -10,6 +10,8 @@ import { CartComponent } from './../cart/cart.component';
 export class NavComponentComponent implements OnInit {
   expandCategory: boolean = false;
 
+  bodyHeight: number = 0;
+
   @ViewChild('cart') cartView: any;
 
   constructor(private modalService: ModalService) { }
@@ -17,6 +19,10 @@ export class NavComponentComponent implements OnInit {
   ngOnInit(): void { }
 
   expandCateFunc() {
+    let body = document.body;
+    let html = document.documentElement;
+    this.bodyHeight = Math.max(body.scrollHeight, body.offsetHeight,
+      html.clientHeight, html.scrollHeight, html.offsetHeight)
     this.expandCategory = !this.expandCategory;
   }
   openCart() {

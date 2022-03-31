@@ -1,5 +1,6 @@
 import { ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector, ViewContainerRef } from '@angular/core';
-import { ModalComponent } from './../component/modal/modal.component';
+import { ModalComponent } from './../component/modal/modal/modal.component';
+import { OverlayComponent } from './../component/modal/overlay/overlay/overlay.component';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,15 @@ export class ModalService {
   libViewRef: any;
   viewRefs: any = [];
   parentLocation: any;
+  private _modalBuild: ModalBuildInfo = new ModalBuildInfo();
+
+  get ModalBuild() {
+    return this._modalBuild;
+  }
+
+  set ModalBuild(value) {
+    this._modalBuild = value;
+  }
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private applicationRef: ApplicationRef, private injector: Injector) { }
 
@@ -20,31 +30,21 @@ export class ModalService {
    * @param viewContainerRef 
    * @returns 
    */
-  open(component: any, modalParams: any = null, viewContainerRef = null) {
+  open(component: any, modalParams: any = null, callBack: any = null, viewContainerRef = null) {
     // this.initModal();
     this.parentLocation = viewContainerRef || this.libViewRef;
-    let container = typeof component === 'function' ? component : ModalComponent;
-    const componentRef = this.componentFactoryResolver.resolveComponentFactory(container).create(this.injector);
-    //
-    (componentRef.instance as (typeof container)).modalParams = modalParams;
-    (componentRef.instance as (typeof container)).modalId = this.viewRefs.length;
-    (componentRef.instance as (typeof container)).closeEvent = (id: number, data: any) => this.close(id, data);
-    (componentRef.instance as (typeof container)).passingEvent = (id: number, data: any) => this.passing(id, data);
-    if (typeof component !== 'function') {
-      (componentRef.instance as (typeof container)).componentViewChild = component;
-    }
-    this.viewRefs.push({ id: this.viewRefs.length, componentRef, });
+    // let container = typeof component === 'function' ? component : ModalComponent;
+    const componentRef = this.componentFactoryResolver.resolveComponentFactory(OverlayComponent).create(this.injector);
+    this.ModalBuild = { id: this.viewRefs.length, type: component, modalParams, callBack }
+    this.viewRefs.push({ id: this.viewRefs.length, componentRef});
     // attach component to the appRef so that so that it will be dirty checked.
     this.applicationRef.attachView(componentRef.hostView);
     // get DOM element from component
     const domElem = (componentRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
-    this.removeScroll(true);
-    // const componentRef = this.parentLocation.createComponent(componentFactory);
     return componentRef.instance;
   }
 
-  
   removeScroll(open: boolean = false) {
     open ? document.body.style.position = 'fixed' : document.body.style.position = ''
   }
@@ -84,4 +84,12 @@ export class ModalService {
     }
     this.removeScroll(false);
   }
+}
+
+
+class ModalBuildInfo {
+  id: number = 0;
+  type: any;
+  modalParams: any;
+  callBack?: Function;
 }

@@ -1,5 +1,17 @@
+@import url('https://css.gg/css');
 * {
+  currentColor: white;
   --nav-height: 10vh;
   /* color */
   --error-clr: #cb2b2b;
+  --success-clr: #50c94c;
+  --back-color-banner: #ffffffc2;
+}
+@keyframes popup {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
