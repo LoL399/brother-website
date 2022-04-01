@@ -17,6 +17,9 @@ import { NoFoundComponent } from './page/user-side/no-found/no-found.component';
 import { ModalComponent } from './component/modal/modal/modal.component';
 import { PopUpDialogComponent } from './component/modal/popup-dialog/pop-up-dialog/pop-up-dialog.component';
 import { OverlayComponent } from './component/modal/overlay/overlay/overlay.component';
+import { LoginRegisterComponent } from './page/user-side/login-register/login-register.component';
+import { LoginFormComponent } from './component/login-form/login-form.component';
+import { RegistryFormComponent } from './component/registry-form/registry-form.component';
 
 
 let userComponent = [
@@ -37,7 +40,10 @@ let userComponent = [
     AppComponent,
     ModalComponent,
     PopUpDialogComponent,
-    OverlayComponent
+    OverlayComponent,
+    LoginRegisterComponent,
+    LoginFormComponent,
+    RegistryFormComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ItemPageComponent } from './page/user-side/item-page/item-page.component';
 import { NoFoundComponent } from './page/user-side/no-found/no-found.component';
 import { CartComponent } from './component/cart/cart.component';
+import { LoginRegisterComponent } from './page/user-side/login-register/login-register.component';
 
 
 const routes: Routes = [
@@ -13,12 +14,13 @@ const routes: Routes = [
   { path: 'catalog', component: ProductPageComponent },
   { path: 'item', component: ItemPageComponent },
   { path: 'bill', component: BillingComponent },
+  { path: 'login', component: LoginRegisterComponent },
   // { path: 'cart', component: CartComponent },
   { path: '**', component: NoFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule],
+  exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

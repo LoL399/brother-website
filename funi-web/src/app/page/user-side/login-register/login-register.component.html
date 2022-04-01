@@ -1,0 +1,20 @@
+<div class="login-container">
+  <div class="item-header"></div>
+  <div class="card-container">
+    <div class="card">
+      <div class="card-header">
+        <div [ngClass]="['card-tab', headerTab === tabType.LOGIN ? 'active' : '']" (click)="setCurrentTab(tabType.LOGIN)">
+          Đăng nhập
+        </div>
+        <div [ngClass]="['card-tab', headerTab === tabType.REGISTRY ? 'active' : '']" (click)="setCurrentTab(tabType.REGISTRY)">Đăng ký</div>
+      </div>
+      <div class="card-body" #body>
+        <ng-container  [ngSwitch]="currentTab">
+          <app-login-form *ngSwitchCase="tabType.LOGIN"></app-login-form>
+          <app-registry-form *ngSwitchCase="tabType.REGISTRY"></app-registry-form>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</div>

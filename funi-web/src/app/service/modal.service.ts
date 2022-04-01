@@ -1,5 +1,4 @@
-import { ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector, ViewContainerRef } from '@angular/core';
-import { ModalComponent } from './../component/modal/modal/modal.component';
+import { ApplicationRef, ComponentFactoryResolver, EmbeddedViewRef, Injectable, Injector } from '@angular/core';
 import { OverlayComponent } from './../component/modal/overlay/overlay/overlay.component';
 
 @Injectable({
@@ -8,7 +7,6 @@ import { OverlayComponent } from './../component/modal/overlay/overlay/overlay.c
 export class ModalService {
   libViewRef: any;
   viewRefs: any = [];
-  parentLocation: any;
   private _modalBuild: ModalBuildInfo = new ModalBuildInfo();
 
   get ModalBuild() {
@@ -21,7 +19,6 @@ export class ModalService {
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private applicationRef: ApplicationRef, private injector: Injector) { }
 
-
   /**
    * create modal 
    * @param component 
@@ -31,8 +28,6 @@ export class ModalService {
    * @returns 
    */
   open(component: any, modalParams: any = null, callBack: any = null, viewContainerRef = null) {
-    // this.initModal();
-    this.parentLocation = viewContainerRef || this.libViewRef;
     // let container = typeof component === 'function' ? component : ModalComponent;
     const componentRef = this.componentFactoryResolver.resolveComponentFactory(OverlayComponent).create(this.injector);
     this.ModalBuild = { id: this.viewRefs.length, type: component, modalParams, callBack }
@@ -82,7 +77,7 @@ export class ModalService {
         modalView.callBack(data);
       }
     }
-    this.removeScroll(false);
+    // this.removeScroll(false);
   }
 }
 

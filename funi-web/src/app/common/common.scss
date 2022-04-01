@@ -1,12 +1,24 @@
-@import url('https://css.gg/css');
+@import url("https://css.gg/css");
 * {
-  currentColor: white;
+  currentcolor: white;
   --nav-height: 10vh;
   /* color */
   --error-clr: #cb2b2b;
   --success-clr: #50c94c;
   --back-color-banner: #ffffffc2;
+  --shadow: 5px 10px #0000001c;
 }
+
+.item-header {
+  width: 100%;
+  height: var(--nav-height);
+  background-color: #000000;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+
 @keyframes popup {
   0% {
     opacity: 0;

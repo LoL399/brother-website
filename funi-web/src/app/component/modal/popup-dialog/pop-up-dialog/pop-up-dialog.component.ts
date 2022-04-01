@@ -18,6 +18,5 @@ export class PopUpDialogComponent extends ModalComponent implements OnInit, Afte
   ngAfterViewInit(): void {
     setTimeout(() => { this.popUpContainer?.nativeElement.classList.add('close'); }, 2000);
     setTimeout(() => { this.close(); }, 4000);
-
   }
 }
